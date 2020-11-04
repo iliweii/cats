@@ -1,0 +1,6 @@
+get a order test123456
+username : 李威 update result :1
+get a order test123456
+username : 李威 update result :1
+get a order test123456
+username : 李威 update result :1

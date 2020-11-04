@@ -1,0 +1,57 @@
+* {
+    margin : 0;
+    padding: 0;
+}
+
+.main {
+    max-width : 900px;
+    margin    : 0 auto;
+    margin-top: 50px;
+}
+
+.span-input {
+    width  : 50px;
+    display: inline-block;
+}
+
+.span-group {
+    display: inline;
+}
+
+.span-group>.textinput {
+    display: inline-block;
+    width  : 50px;
+}
+
+.Clock {
+    padding   : 0;
+    min-width : 33px !important;
+    text-align: center;
+    flex-grow : 0 !important;
+}
+
+.ansspan {
+    border    : #000 solid 1px;
+    width     : 26px;
+    height    : 26px;
+    text-align: center;
+    display   : inline-block;
+}
+
+.ansarea {
+    display    : flex;
+    align-items: center;
+}
+
+.RAMarea {
+    display       : flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 700px) {
+    .main {
+        margin-top: 0;
+        padding   : 0 !important;
+        min-height: 100vh;
+    }
+}

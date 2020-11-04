@@ -1,0 +1,29 @@
+<?php
+$config = array(
+	//签名方式,默认为RSA2(RSA2048)
+	'sign_type' => "RSA2",
+
+	//支付宝公钥
+	'alipay_public_key' => "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp1uZ0mkbSEqGhYXQXCGnpurLR633YhKFMNM8ZzI7nwgBgHeihkMJE3BHvcvmsb+uKr6jSSZC8jRNS4eJwQvak/0ZJ/6HBBmNiFQB5z1CfKQUSIbam88IKYXO8bWqNia7e/Kqjbe4DMdEPASPd6CvzvpRO+VaWYArUP67k5Qs6yeDKK6ZZnFjLAwadIAggp7zvoteBY0E1IRtrVZ51qoDzheVEkJYvJQixlIiUatzKMonkEDmGFSObmftahnW4KRDPmytBE7g2p+Ho6q/gMNM++uMVjr9KBiuKfbFbvQRMaHre8COSCa+4/3r3QZ3cwownEr7HFLu046OiJO+JpbA5wIDAQAB",
+
+	//商户私钥
+	'merchant_private_key' => "MIIEowIBAAKCAQEAtDkkmpYXHdEk0QPnzUia8rezm/Ev6HpYA2eCyNEXI4S5BimmTu0rss9LMefcXPT8sCXy4e6xvrMXH+T08IHwbUa6VAWrz0W98QxGfjZ3PYGmaBkeiay/hfRht+Mu3iKOfiJiSpE1wfiT14HPlwEJMFMFpEKVXs6Kn+1hNSEl7psjV5edCsgz5U8hSusWTMxK9OAV7OSm12CipjHoZ0QwdYap1Wl1VbprbB4Y6CSXxxB6HabBTJR2Hnw2WLC6Dxxz2TUQahXOLkacM/9bzTqarVrR4wzQqEfxBTkFMsta7sumjno3+d1bIe3YTPhPqsNDIS2XqPbZZRJnOrCALUobXwIDAQABAoIBACRJzUEDL6xlTFB5xNbk464zpwqjSc45tDcbRI5C67HPK6I+CKqjvsTGUJG/6fMdsTOWsI0ljsyjKujVJSy4PT0DnMkGS0308QX0Ps1zEhdkX6leRXPbQMUsK/Dm4a0AsEhdjAUPsA9aigo+rRnur3b3gI9OiN0KIYeKOKSGBClC5NWCkIbBpnLb9jSgJt+vAhL55WsuY9BcVEeF7nJGCE0OPpP05yIZ+kOpmNjme5nltni4r+cn/qmUpEISrRSVlOn4q2AuyNHmPIw/2zaiFAU/B6K/ruLDqe3UDODEQZO4K03YZN/ohSjfJme0IJn0b96Acrml5epr8fNpavjNr6ECgYEA6P8vwLZPXA1L+L0VPK6kK44FyfpTIzFSOxW0YCqV567MjX93YlPRDHtM3wqiGcn4Sp6e2VW7UkNLArTU4B/V6RngbcUC9DfpGVJG7L1GhPoL/6saCw6zKs+RBS0a+BWI7uA/VXGTJrFaU38t7yXNLXwLDNCyknMybYyXbmCynK0CgYEAxgQlAhheNAWYDP6yUb6iYpByTlULrMzuRBq6uERalRL1K7w7RJzbFeNRVSG7hJPESybk+W1YIoGn+HTukbQ/m0jiJngt6gMcIAyz3aurjjmmkZ8XSheNi0hlmacmrfcaOsjGWwnGp0J57M8jYKJZ61/BSWNQAMnz6T3S834MbbsCgYEAyr7kCsmZnPxlE3lVtYwyh0P6fZs6JPGSIJ/uaZAlCYntrWMxu3o7+qSAa8WQ8OfzCtukVnJnolm0OBKq+qw5M7G0vVAmFeVhDQuvc+nwJ15+emelLeIIvkQIaXyqbx4uHc88zVkbNxw1AVs12VgHhoDeDLS97voW84TXcNDsG7ECgYBSOPRZC19KgKwjcTsAQIVTIiGkryG67hldxC+WRiPK1OVi9LUzh2Jdk1d5XxlrMqSGhC79905qfaYOwBcz/0GOLFRjnvGJwyLRmBSzzg3db8jfnMzh4ifPFw/BHqwr/ngwwp/Cu6t2Vl8kWtqYzLFD0C4FWCynNzSFvDs1CjkE8wKBgDlpM54ubwRpEsuC0hTOmeWmEfSYfCmE43H8MSPCz4s9FlmbLNo/aSIimdCWBc5DG2iYDCDp+HqOUGfZCPhDGofs78CGs1zNtYt9AidDQvDwVMoty5/ESFAuuXz5mMZ/90pKDv0vmLZCuvYBmZxVrosIAYAwU5djGASUR+n9vTDD",
+
+	//编码格式
+	'charset' => "UTF-8",
+
+	//支付宝网关
+	'gatewayUrl' => "https://openapi.alipay.com/gateway.do",
+
+	//应用ID
+	'app_id' => "2021002103628555",
+
+	//异步通知地址,只有扫码支付预下单可用
+	'notify_url' => "https://czxt.honghong520.xyz/common/api.php",
+
+	//最大查询重试次数
+	'MaxQueryRetry' => "10",
+
+	//查询间隔
+	'QueryDuration' => "3"
+);

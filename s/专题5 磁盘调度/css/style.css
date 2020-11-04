@@ -1,0 +1,50 @@
+* {
+    margin : 0;
+    padding: 0;
+}
+
+.main {
+    max-width : 900px;
+    margin    : 0 auto;
+    margin-top: 50px;
+}
+
+.span-input {
+    width     : 50px;
+    display   : inline-block;
+    padding   : 0;
+    text-align: center;
+}
+
+.textinput {
+    padding   : 0;
+    text-align: center;
+}
+
+.ASL {
+    width: 60%;
+}
+
+.ASLT,
+.ASLB {
+    width: 100%;
+}
+
+.ASLM {
+    width     : 100%;
+    border-top: #000 solid 2px;
+}
+
+.Track {
+    min-width : 35px !important;
+    text-align: center;
+    flex-grow : 0 !important;
+}
+
+@media screen and (max-width: 700px) {
+    .main {
+        margin-top: 0;
+        padding   : 0 !important;
+        min-height: 100vh;
+    }
+}

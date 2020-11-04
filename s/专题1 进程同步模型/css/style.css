@@ -1,0 +1,30 @@
+* {
+    margin : 0;
+    padding: 0;
+}
+
+.main {
+    max-width : 900px;
+    margin    : 0 auto;
+    margin-top: 50px;
+}
+
+.inline-input {
+    display: inline;
+    width: 45px;
+    text-align: center;
+    padding: 0;
+}
+
+span.order {
+    padding: 5px 10px;
+    border: #000 solid 1px;
+}
+
+@media screen and (max-width: 700px) {
+    .main {
+        margin-top: 0;
+        padding   : 0 !important;
+        min-height: 100vh;
+    }
+}

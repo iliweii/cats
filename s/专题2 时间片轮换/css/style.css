@@ -1,0 +1,50 @@
+* {
+    margin : 0;
+    padding: 0;
+}
+
+.main {
+    max-width : 900px;
+    margin    : 0 auto;
+    margin-top: 50px;
+}
+
+.q1area {
+    display      : flex;
+    align-items  : flex-start;
+    margin-bottom: unset;
+}
+
+.q1ib {
+    display         : inline-block;
+    width           : 40px;
+    height          : 20px;
+    line-height     : 20px;
+    text-align      : center;
+    background-color: #fff;
+    border          : #000 solid 1px;
+    border-bottom   : unset;
+}
+
+.q1i {
+    display         : inline-block;
+    width           : 40px;
+    height          : 20px;
+    line-height     : 20px;
+    text-align      : center;
+    background-color: #fff;
+    border          : #000 solid 1px;
+}
+
+.Tinput {
+    padding   : 0;
+    text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+    .main {
+        margin-top: 0;
+        padding   : 0 !important;
+        min-height: 100vh;
+    }
+}

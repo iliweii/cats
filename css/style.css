@@ -1,0 +1,301 @@
+* {
+    margin : 0;
+    padding: 0;
+}
+
+body {
+    display            : flex;
+    min-height         : 100vh;
+    flex-direction     : column;
+    background-image   : url(../img/background.jpg);
+    background-size    : cover;
+    background-position: center top;
+}
+
+body::-webkit-scrollbar {
+    width : 5px;
+    height: 10px;
+}
+
+body::-webkit-scrollbar-track-piece {
+    -webkit-border-radius: 0;
+}
+
+/* 滚动条 */
+body::-webkit-scrollbar-thumb {
+    height               : 50px;
+    background-color     : #b8b8b8;
+    -webkit-border-radius: 6px;
+    outline-offset       : -2px;
+    filter               : alpha(opacity=50);
+    -moz-opacity         : 0.5;
+    -khtml-opacity       : 0.5;
+    opacity              : 0.5;
+}
+
+.body {
+    width      : 100%;
+    height     : auto;
+    padding-top: 25vh;
+}
+
+.inner {
+    max-width: 1400px;
+    margin   : 0 auto;
+    position : relative;
+}
+
+.form {
+    margin-left       : auto;
+    margin-right      : auto;
+    position          : relative;
+    max-width         : 440px;
+    width             : calc(100% - 40px);
+    padding           : 44px;
+    margin-bottom     : 28px;
+    background-color  : #fff;
+    -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+    -moz-box-shadow   : 0 2px 6px rgba(0, 0, 0, .2);
+    box-shadow        : 0 2px 6px rgba(0, 0, 0, .2);
+    min-width         : 320px;
+    min-height        : 338px;
+    overflow          : hidden;
+    background-color  : rgba(255, 255, 255, 0.8);
+}
+
+.form-icon {
+    height : 27px;
+    display: flex;
+}
+
+.form-icon>img {
+    height: 100%;
+}
+
+.form-icon>.lead {
+    color      : #888 !important;
+    font-weight: 400;
+}
+
+.form-title {
+    margin-bottom : 20px;
+    margin-top    : 20px;
+    margin-bottom : 1.25rem;
+    margin-top    : 1.25rem;
+    font-size     : 24px;
+    line-height   : 28px;
+    font-weight   : 300;
+    line-height   : 1.75rem;
+    padding-bottom: 2.3632px;
+    padding-top   : 2.3632px;
+    color         : #1b1b1b;
+    font-size     : 1.5rem;
+    font-weight   : 600;
+    padding       : 0;
+    margin-top    : 16px;
+    margin-bottom : 12px;
+    border-bottom : #888 solid 1px;
+    font-family   : "Segoe UI", "Helvetica Neue", "Lucida Grande", "Roboto", "Ebrima", "Nirmala UI", "Gadugi", "Segoe Xbox Symbol", "Segoe UI Symbol", "Meiryo UI", "Khmer UI", "Tunga", "Lao UI", "Raavi", "Iskoola Pota", "Latha", "Leelawadee", "Microsoft YaHei UI", "Microsoft JhengHei UI", "Malgun Gothic", "Estrangelo Edessa", "Microsoft Himalaya", "Microsoft New Tai Lue", "Microsoft PhagsPa", "Microsoft Tai Le", "Microsoft Yi Baiti", "Mongolian Baiti", "MV Boli", "Myanmar Text", "Cambria Math";
+}
+
+.form-group {
+    color: #6c757d;
+}
+
+.tips {
+    width     : 100%;
+    margin-top: .25rem;
+    font-size : 80%;
+    display   : block;
+}
+
+.pages {
+    width   : 100%;
+    height  : auto;
+    position: relative;
+}
+
+.page {
+    width                     : 100%;
+    height                    : auto;
+    position                  : absolute;
+    top                       : 0;
+    transition                : 400ms, opacity 200ms;
+    transition-timing-function: ease-in-out;
+    opacity                   : 0;
+    left                      : 150%;
+}
+
+.pages>.active {
+    opacity: 1;
+    left   : 0;
+}
+
+.backBtn {
+    width        : 28px;
+    height       : 28px;
+    border       : unset;
+    border-radius: 50px;
+    outline      : none !important;
+    background   : unset;
+    transition   : 200ms;
+}
+
+.backBtn:hover {
+    background-color: #b8b8b8;
+}
+
+.main {
+    max-width       : 1000px;
+    margin          : 0 auto;
+    margin-top      : 10vh;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding         : 45px;
+    border-radius   : 5px;
+}
+
+.main-content {
+    display  : flex;
+    flex-wrap: wrap;
+}
+
+.main-item {
+    transition      : 400ms;
+    background-color: rgba(255, 255, 255, 0);
+    padding         : 30px;
+    border-radius   : 5px;
+}
+
+.main-item:hover {
+    background-color: #b8b8b8;
+}
+
+.main-title {
+    position: relative;
+}
+
+.userinfo {
+    position   : absolute;
+    top        : 0;
+    right      : 0;
+    width      : 40px;
+    height     : 40px;
+    overflow   : hidden;
+    white-space: nowrap;
+    transition : 400ms;
+}
+
+.userbutton {
+    width           : 40px;
+    height          : 40px;
+    border          : #1b1b1b solid 3px;
+    border-radius   : 50px;
+    background-color: aliceblue;
+    color           : #1b1b1b;
+    font-size       : 14px;
+    text-align      : center;
+    overflow        : hidden;
+    cursor          : pointer;
+    line-height     : 33px;
+    transition      : 400ms;
+    user-select     : none;
+}
+
+.userbox {
+    z-index       : -1000;
+    position      : absolute;
+    left          : 0;
+    top           : 0;
+    opacity       : 0;
+    pointer-events: none;
+}
+
+.userbox:checked~.userinfo {
+    width : 120px;
+    height: 135px;
+}
+
+.userbox:checked~.userinfo>.userbutton {
+    width           : 100%;
+    height          : 100%;
+    border-radius   : 5px;
+    text-align      : left;
+    padding-left    : 10px;
+    background-color: rgba(255, 255, 255, .8);
+    text-decoration : underline;
+}
+
+.userbox:checked~.userinfo>.userbutton::after {
+    content  : "×";
+    display  : inline-block;
+    color    : red;
+    font-size: 20px;
+}
+
+.userop {
+    display         : flex;
+    flex-direction  : column;
+    list-style      : none;
+    position        : absolute;
+    transform       : scale(0);
+    transform-origin: top left;
+    transition      : 600ms;
+}
+
+.useropitem {
+    font-size   : 14px;
+    padding-left: 10px;
+}
+
+.userbox:checked~.userinfo>.userop {
+    transform: scale(1);
+    top      : 35px;
+    left     : 0;
+}
+
+.Deadline {
+    font-size: 8px;
+    position : absolute;
+    top      : 65px;
+}
+
+@media screen and (max-width: 700px) {
+    .userinfo {
+        width : 55px;
+        height: 55px;
+    }
+
+    .userbutton {
+        width : 100%;
+        height: 100%;
+    }
+
+    .userbox:checked~.userinfo {
+        width : 100%;
+        height: 300px;
+    }
+
+    .userbutton,
+    .userbutton::after {
+        font-size: 26px;
+    }
+
+    .userbox:checked~.userinfo>.userbutton {
+        text-align: right;
+    }
+
+    .useropitem {
+        font-size: 22px;
+        margin   : 10px 35px;
+    }
+
+    .Deadline {
+        position: unset;
+    }
+
+    .main {
+        margin       : 0;
+        margin-top   : 0;
+        border-radius: 0;
+    }
+}

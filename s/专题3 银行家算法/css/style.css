@@ -1,0 +1,56 @@
+* {
+    margin : 0;
+    padding: 0;
+}
+
+.main {
+    max-width : 900px;
+    margin    : 0 auto;
+    margin-top: 50px;
+}
+
+.span-group {
+    display: inline;
+}
+
+.span-group>.Resource {
+    display: inline-block;
+    width  : 50px;
+}
+
+.table td {
+    padding: .15rem;
+}
+
+.col {
+    margin : 0;
+    padding: 0;
+}
+
+.table td,
+.table th {
+    vertical-align: unset;
+}
+
+table {
+    text-align: center;
+}
+
+.Tinput {
+    padding: 0;
+    text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+    .main {
+        margin-top: 0;
+        padding   : 0 !important;
+        min-height: 100vh;
+    }
+}
+
+.form-control[readonly] {
+    background-color: #f8f8f8;
+    text-align      : center;
+    padding         : 0;
+}
