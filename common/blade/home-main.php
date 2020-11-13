@@ -37,12 +37,12 @@
                     continue;
                 }
             ?>
-                <h4 class="m-3 pl-4 main-item">
+                <div class="m-2 pl-3 main-item">
                     <a href="<?php echo $s . $dir; ?>" target="_blank">
-                        <img src="<?php echo $s . $dir; ?>/img/show.jpg" style="width: 200px;">
+                        <img src="<?php echo $s . $dir; ?>/img/show.jpg" class="s-bg">
                         <p><?php echo $dir; ?></p>
                     </a>
-                </h4>
+                </div>
             <?php } ?>
         </div>
         <?php include_once("./common/warn.php") ?>

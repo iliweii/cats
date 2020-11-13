@@ -259,6 +259,10 @@ body::-webkit-scrollbar-thumb {
     top      : 65px;
 }
 
+.s-bg {
+    width: 150px;
+}
+
 @media screen and (max-width: 700px) {
     .userinfo {
         width : 55px;
@@ -297,5 +301,9 @@ body::-webkit-scrollbar-thumb {
         margin       : 0;
         margin-top   : 0;
         border-radius: 0;
+    }
+
+    .s-bg {
+        width: 200px;
     }
 }

@@ -416,6 +416,8 @@ else if (strcmp($_POST["op"], "use_time") == 0) {
     if (empty($_POST['username']) || empty($_POST['ip'])) {
         echo "empty_value";
     } else {
+        // 这里计数+1
+        setList($db);
         // 若time表和ip表中数据不为0，减1并记录
         $date = date('Y-m-d');
         $username = $_POST['username'];
@@ -582,6 +584,8 @@ else if (strcmp($_POST["op"], "yhjsf") == 0) {
  * 专题8
  */
 else if (strcmp($_POST["op"], "jczs") == 0) {
+    // 这里计数+1
+    setList($db);
     $sql = "SELECT * FROM `s8`";
     $result = mysqli_query($db, $sql);
     $obj = mysqli_fetch_all($result);
@@ -604,6 +608,78 @@ else if (strcmp($_POST["op"], "jczs") == 0) {
     ]);
 }
 /**
+ * 英语六级
+ */
+else if (strcmp($_POST["op"], "eng6") == 0) {
+    // 这里计数+1
+    setList($db);
+    $sql = "SELECT * FROM `eng6`";
+    $result = mysqli_query($db, $sql);
+    $obj = mysqli_fetch_all($result);
+    $random = mt_rand(0, count($obj) - 1);
+    $word = $obj[$random][0];
+    $part = $obj[$random][1];
+    $mean = $obj[$random][2];
+
+    echo json_encode([
+        // "mode" => mt_rand(0, 1), // 0为英译汉 1为汉译英
+        "mode" => 0,
+        "word" => $word,
+        "part" => $part,
+        "mean" => $mean
+    ]);
+}
+/**
+ * 基础会计学必备知识
+ */
+else if (strcmp($_POST["op"], "acct") == 0) {
+    // 这里计数+1
+    setList($db);
+    $sql = "SELECT * FROM `acct`";
+    if (!empty($_POST["chapter"])) {
+        $chapter = $_POST["chapter"];
+        $sql = "SELECT * FROM `acct` WHERE `chapter` LIKE '$chapter'";
+    }
+    $result = mysqli_query($db, $sql);
+    $obj = mysqli_fetch_all($result);
+    if (!empty($obj)) {
+        $random = mt_rand(0, count($obj) - 1);
+        $chapter = $obj[$random][0];
+        $section = $obj[$random][1];
+        $exampoint = $obj[$random][2];
+        $question = $obj[$random][3];
+        $answer = explode(",", $obj[$random][4]);
+        $ansnum = count($answer);
+        if ($ansnum > 0) {
+            $ansrandom = mt_rand(0, $ansnum - 1);
+            for ($i = 0; $i < $ansnum; $i++) {
+                $question = str_replace_once($question, "_", $answer[$i]);
+            }
+            $answer = $answer[$ansrandom];
+            $question = str_replace_once($question, $answer, "###");
+        }
+
+        echo json_encode([
+            "chapter" => $chapter,
+            "section" => $section,
+            "exampoint" => $exampoint,
+            "question" => $question,
+            "answer" => $answer
+        ]);
+    } else {
+        echo "empty";
+    }
+}
+/**
+ * 刷题排行榜
+ */
+else if (strcmp($_POST["op"], "get_list") == 0) {
+    $sql = "SELECT * FROM `czxt_list`";
+    $result = mysqli_query($db, $sql);
+    $obj = mysqli_fetch_all($result);
+    echo json_encode($obj);
+}
+/**
  * 返回所有用户数据
  * 
  */
@@ -623,6 +699,30 @@ else {
 
 
 
+
+
+/**
+ * 对于所有请求，若用户已经登录，在排行榜中计数
+ * @param DB $db 数据库连接对象
+ */
+function setList($db)
+{
+    if (!empty($_COOKIE["username"])) {
+        $uname = $_COOKIE["username"];
+        $query = "SELECT * FROM `czxt_list` WHERE `uname` LIKE '$uname'";
+        $result = mysqli_query($db, $query);
+        $obj = mysqli_fetch_object($result);
+        if (!empty($obj)) {
+            // 如果用户存在，更新计数
+            $update_time = "UPDATE `czxt_list` SET `time` = `time` + 1 WHERE `czxt_list`.`uname` = '$uname'";
+            $result = mysqli_query($db, $update_time);
+        } else {
+            // 否则插入新增榜单数据
+            $insert = "INSERT INTO `czxt_list` (`lid`, `uname`, `time`) VALUES (NULL, '$uname', 1)";
+            $db->query($insert);
+        }
+    }
+}
 
 /**
  * 返回指定长度的随机字符串
