@@ -55,18 +55,34 @@
                     dataPoints[i].label = list[i][1]
                     dataPoints[i].y = list[i][2]
                 }
-                new CanvasJS.Chart('chartContainer', {
-                    theme: 'theme4', //主题
-                    animationEnabled: true,
-                    title: {
-                        text: "刷题排行榜TOP" + list_num
-                    },
-                    data: [{
-                        // 数据
-                        type: "bar",
-                        dataPoints: dataPoints
-                    }]
-                }).render();
+                if ($(document.body).height() > $(document.body).width()) {
+                	new CanvasJS.Chart('chartContainer', {
+	                    theme: 'theme4', //主题
+	                    animationEnabled: true,
+	                    title: {
+	                        text: "刷题排行榜TOP" + list_num
+	                    },
+	                    data: [{
+	                        // 数据
+	                        type: "bar",
+	                        dataPoints: dataPoints
+	                    }]
+	                }).render();
+                } else {
+                	new CanvasJS.Chart('chartContainer', {
+	                    theme: 'theme4', //主题
+	                    animationEnabled: true,
+	                    title: {
+	                        text: "刷题排行榜TOP" + list_num
+	                    },
+	                    data: [{
+	                        // 数据
+	                        type: "column",
+	                        dataPoints: dataPoints.reverse()
+	                    }]
+	                }).render();
+                }
+                
             },
             error: function(str) {
                 console.log("请求失败：");

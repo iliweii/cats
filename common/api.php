@@ -630,6 +630,54 @@ else if (strcmp($_POST["op"], "eng6") == 0) {
     ]);
 }
 /**
+ * 英语六级(全)
+ * 区别于上面的方法，本方法数据来源于淘宝，上述方法数据来源于百度
+ * 本数据包括 序号 单词 注音 释义，上述方法包括 单词 词性 词义
+ * 本数据词义判断使用子字符串匹配方法，上述方法使用数组项判断
+ */
+else if (strcmp($_POST["op"], "eng6_1") == 0) {
+    // 这里计数+1
+    setList($db);
+    $sql = "SELECT * FROM `eng6_1`";
+    $result = mysqli_query($db, $sql);
+    $obj = mysqli_fetch_all($result);
+    $random = mt_rand(0, count($obj) - 1);
+    $id = $obj[$random][0];
+    $word = $obj[$random][1];
+    $zhuyin= $obj[$random][2];
+    $mean = $obj[$random][3];
+
+    echo json_encode([
+        "id" => $id,
+        "word" => $word,
+        "zhuyin" => $zhuyin,
+        "mean" => $mean
+    ]);
+}
+/**
+ * 英语四级(全)
+ * 类似于英语六级(全)
+ */
+else if (strcmp($_POST["op"], "eng4_1") == 0) {
+    // 这里计数+1
+    setList($db);
+    $sql = "SELECT * FROM `eng4_1`";
+    $result = mysqli_query($db, $sql);
+    $obj = mysqli_fetch_all($result);
+    $random = mt_rand(0, count($obj) - 1);
+    $id = $obj[$random][0];
+    $word = $obj[$random][1];
+    $zhuyin= $obj[$random][2];
+    $mean = $obj[$random][3];
+
+    echo json_encode([
+        "id" => $id,
+        "word" => $word,
+        "zhuyin" => $zhuyin,
+        "mean" => $mean
+    ]);
+}
+/**
  * 基础会计学必备知识
  */
 else if (strcmp($_POST["op"], "acct") == 0) {

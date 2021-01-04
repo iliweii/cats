@@ -3,7 +3,7 @@ header("Content-type: text/html; charset=utf-8");
 require_once 'model/builder/AlipayTradePrecreateContentBuilder.php';
 require_once 'service/AlipayTradeService.php';
 
-$money_baiyin = 0.01;
+$money_baiyin = 9.99;
 $money_huangjin = 14.99;
 
 if (!empty($_POST['username'])&& trim($_POST['username'])!=""){
