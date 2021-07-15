@@ -138,7 +138,11 @@ window.onload = function () {
                         },
                         success: function (e) {
                             if (chkEmail(e)) {
-                                NextPage(namePage, verifyPage, '-')
+                                // TODO 这里跳转到设置密码
+                                // NextPage(namePage, verifyPage, '-')
+                                // 下面是解决办法
+                                window.location.replace(`./index.php?verify=on&email=${e}&hash=jh4x6tlVlU`)
+                            
                             } else {
                                 NextPage(namePage, emailPage, '-')
                             }
@@ -235,17 +239,21 @@ window.onload = function () {
                 } else if (e == "bind_success") {
                     // 成功绑定邮箱
                     // 发送邮件
-                    $.ajax({
-                        type: "POST",
-                        url: APIURL,
-                        data: {
-                            op: "send_email",
-                            userEmail: useremail
-                        },
-                        success: function (e) {
-                            NextPage(emailPage, verifyPage, '-')
-                        }
-                    })
+                    // TODO　邮件服务器宕机，暂时不做发送邮件
+                    // $.ajax({
+                    //     type: "POST",
+                    //     url: APIURL,
+                    //     data: {
+                    //         op: "send_email",
+                    //         userEmail: useremail
+                    //     },
+                    //     success: function (e) {
+                    //         NextPage(emailPage, verifyPage, '-')
+                    //     }
+                    // })
+                    // 下面是解决办法：
+                    // 直接跳转到邮件验证界面
+                    window.location.replace(`./index.php?verify=on&email=${email}&hash=jh4x6tlVlU`)
                 } else if (e == "bind_error" || e) {
                     // 出现问题
                     NextPage(emailPage, errorPage, '-')

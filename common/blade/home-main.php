@@ -18,7 +18,7 @@
                         <a href="#" class="SetPassword">修改密码</a>
                     </li>
                     <li class="useropitem">
-                        <a href="#" class="VIPBtn">会员中心</a>
+                        <a href="#" class="VIPBtn0">会员中心</a>
                     </li>
                     <li class="useropitem">
                         <p class="VIPClass">您还不是会员</p>

@@ -719,6 +719,71 @@ else if (strcmp($_POST["op"], "acct") == 0) {
     }
 }
 /**
+ * 黑马程序员 晨读单词
+ */
+else if (strcmp($_POST["op"], "heima_chendu") == 0) {
+    // 这里计数+1
+    setList($db);
+    $sql = "SELECT * FROM `heima_chendu`";
+    if (!empty($_POST["date"])) {
+        $date = $_POST["date"];
+        $sql = "SELECT * FROM `heima_chendu` WHERE `date` LIKE '%$date%'";
+    }
+    $result = mysqli_query($db, $sql);
+    $obj = mysqli_fetch_all($result);
+    $random = mt_rand(0, count($obj) - 1);
+    $id = $obj[$random][0];
+    $word = trim($obj[$random][1]);
+    $yinbiao= $obj[$random][2];
+    $mean = $obj[$random][3];
+    $date = $obj[$random][3];
+
+    echo json_encode([
+        "id" => $id,
+        "word" => $word,
+        "yinbiao" => $yinbiao,
+        "mean" => $mean,
+        "date" => $date
+    ]);
+}
+/**
+ * 黑马程序员 晨读单词日期列表
+ */
+else if (strcmp($_POST["op"], "heima_chendu_datelist") == 0) {
+    $sql = "SELECT DISTINCT `date` FROM `heima_chendu`";
+    $result = mysqli_query($db, $sql);
+    $obj = mysqli_fetch_all($result);
+    $datelist = [];
+    for ($i = 0; $i < count($obj); $i++) {
+        $datelist[$i] = $obj[$i][0];
+    }
+    echo json_encode($datelist);
+}
+/**
+ * 黑马程序员 晨读单词列表
+ */
+else if (strcmp($_POST["op"], "heima_chendu_list") == 0) {
+    $sql = "SELECT * FROM `heima_chendu`";
+    if (!empty($_POST["date"])) {
+        $date = $_POST["date"];
+        $sql = "SELECT * FROM `heima_chendu` WHERE `date` LIKE '%$date%'";
+    }
+    $result = mysqli_query($db, $sql);
+    $obj = mysqli_fetch_all($result);
+
+    echo json_encode($obj);
+}
+/**
+ * 黑马程序员 人员列表
+ */
+else if (strcmp($_POST["op"], "heima_list") == 0) {
+    $sql = "SELECT * FROM `heima_list`";
+    $result = mysqli_query($db, $sql);
+    $obj = mysqli_fetch_all($result);
+
+    echo json_encode($obj);
+}
+/**
  * 刷题排行榜
  */
 else if (strcmp($_POST["op"], "get_list") == 0) {

@@ -1,0 +1,50 @@
+* {
+    transition: 50ms;
+}
+
+.main {
+    background-color: black;
+    height          : 100vh;
+}
+
+.list-main {
+    display  : flex;
+    flex-wrap: wrap;
+}
+
+.list-item {
+    width           : 80px;
+    text-align      : center;
+    border          : 1px solid red;
+    color           : white;
+    font-size       : 16px;
+    background-color: black;
+    margin          : 10px;
+}
+
+.list-main>.active {
+    color           : black;
+    background-color: yellow;
+}
+
+.list-bottom {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    width          : 100%;
+    margin         : 20px 0;
+}
+
+.go {
+    width           : 300px;
+    height          : 30px;
+    color           : white;
+    background-color: green;
+    border-radius   : 3px;
+    border          : none;
+    outline         : none;
+}
+
+.go-active {
+    background-color: rgb(67, 151, 95);
+}

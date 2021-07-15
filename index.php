@@ -13,6 +13,14 @@
     <script src="./js/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
 
+    <script>
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        if (vars[0] == "heima") {
+            window.location.replace("/s/%e9%bb%91%e9%a9%ac%e6%99%a8%e8%af%bb/")
+        }
+    </script>
+
     <?php
 
     if (empty($_COOKIE['username']) && empty($_POST['username'])) {
