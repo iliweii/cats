@@ -18,6 +18,8 @@
     <button type="button" class="btn mx-2 btn-outline-info list-today">今日单词表</button>
     <button type="button" class="btn mx-2 btn-outline-success" onclick="window.location.replace('./list.php')">全部单词表</button>
 
+    <button type="button" class="btn mx-2 btn-info" onclick="window.location.href = './file/黑马晨读.msi'">下载单机</button>
+
     <script>
         $.ajax({
             type: "post",

@@ -4,7 +4,7 @@
 }
 
 .main {
-    max-width : 900px;
+    max-width : 1000px;
     margin    : 0 auto;
     margin-top: 50px;
 }
@@ -56,4 +56,15 @@
     .btn {
         font-size: 36px;
     }
+}
+
+.word::after {
+    cursor: pointer;
+    content: "";
+    padding: 7px;
+    margin-left: 10px;
+    background-image: url(../img/voice.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }

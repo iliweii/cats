@@ -1,5 +1,7 @@
 <?php
 
+header('Access-Control-Allow-Origin: *');
+
 // 连接数据库文件
 $host = '127.0.0.1';
 $dbuser = 'root';
@@ -766,12 +768,28 @@ else if (strcmp($_POST["op"], "heima_chendu_list") == 0) {
     $sql = "SELECT * FROM `heima_chendu`";
     if (!empty($_POST["date"])) {
         $date = $_POST["date"];
-        $sql = "SELECT * FROM `heima_chendu` WHERE `date` LIKE '%$date%'";
+        $sql = "SELECT * FROM `heima_chendu` WHERE `date` LIKE '%$date%' ORDER BY `id`";
     }
     $result = mysqli_query($db, $sql);
     $obj = mysqli_fetch_all($result);
 
     echo json_encode($obj);
+}
+/**
+ * 黑马程序员 晨读单词列表(对象数组)
+ */
+else if (strcmp($_POST["op"], "heima_chendu_list2") == 0) {
+    $sql = "SELECT * FROM `heima_chendu`";
+    $row = mysqli_query($db, $sql);
+    $result = [];
+    if($row) {
+        //转化为数组
+       while($value = $row->fetch_object()) {
+                $result[] = $value;
+         }
+    }
+
+    echo json_encode($result);
 }
 /**
  * 黑马程序员 人员列表
